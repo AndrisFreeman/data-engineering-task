@@ -43,6 +43,8 @@ def download_resource(resource, base_url=BASE_URL, verbose=True):
 
 
 if __name__ == "__main__":
+    import os
+    
     # Define a list of resources to download
     resources = ["films", "people", "planets", "species", "starships", "vehicles"]
 
@@ -54,4 +56,5 @@ if __name__ == "__main__":
 
         # Save the DF to a CSV file
         # Alternatively here one could include code for establishing connections to a database (DB) or a data warehouse (DW) to host the data
+        os.makedirs(f"data", exist_ok=True)
         df_resource.to_csv(f"data/{resource}.csv")
